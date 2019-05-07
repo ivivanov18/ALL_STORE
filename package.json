@@ -4,7 +4,9 @@
   "description": "Final project for Techhuddle course Node.js Technologies",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "server": "nodemon index"
   },
   "author": "Ivan Ivanov",
   "license": "ISC",
@@ -15,6 +17,8 @@
     "express-validator": "^5.3.1",
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.2.3",
+    "mongoose": "^5.5.6",
     "request": "^2.88.0"
   },
   "devDependencies": {
