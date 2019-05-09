@@ -21,14 +21,23 @@ class User {
       _id: _id.get(this),
       name: _name.get(this),
       email: _email.get(this),
-      password: _password.get(this)
+      password: _password.get(this),
+      createdAt: Date.now()
     };
   }
 
-  static async findById(id) {
-    const collection = getConnection();
-    const result = await collection.findOne({ _id: new ObjectId(id) });
-    return result ? new User(result) : undefined;
+  static async findById(id, filterFieldsArray = []) {
+    const filteredFieldsObj = filterFieldsArray.reduce((acc, curr) => {
+      acc[curr] = 0;
+      return acc;
+    }, {});
+    const collection = await getConnection();
+    const user = await collection.findOne(
+      { _id: new ObjectId(id) },
+      { fields: { ...filteredFieldsObj } }
+    );
+    //return result ? new User(result) : undefined;
+    return user;
   }
 
   static async findOne({ email }) {
@@ -39,7 +48,6 @@ class User {
 
   async save() {
     const collection = await getConnection();
-    console.log(this.toMongoBinding());
     const result = await collection.insertOne(this.toMongoBinding());
 
     return result;
