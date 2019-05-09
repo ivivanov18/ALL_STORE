@@ -52,6 +52,10 @@ class User {
   get password() {
     return _password.get(this);
   }
+
+  get id() {
+    return _id.get(this);
+  }
 }
 
 const getConnection = async () => {
