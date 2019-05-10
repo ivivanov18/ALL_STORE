@@ -12,7 +12,7 @@ class User {
   constructor(payload) {
     _name.set(this, payload.name);
     _email.set(this, payload.email);
-    _password.set(this, payload.password); //TODO: set it to hash
+    _password.set(this, payload.password);
     _id.set(this, new ObjectId());
   }
 
