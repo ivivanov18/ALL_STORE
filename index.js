@@ -1,17 +1,26 @@
 const express = require("express");
+const session = require("express-session");
 
 // Models
 const User = require("./models/User");
 
 const app = express();
+app.use(
+  session({
+    resave: false,
+    saveUninitialized: true,
+    secret: "secretforsession",
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000,
+    cookie: { secure: false }
+  })
+);
 app.use(express.json({ extended: false }));
-
-app.get("/", (req, res) => res.send("BACKEND"));
-
 app.use("/users", require("./routes/users"));
 app.use("/auth", require("./routes/auth"));
 app.use("/products", require("./routes/products"));
 app.use("/categories", require("./routes/categories"));
+app.use("/cart", require("./routes/cart"));
 
 const PORT = process.env.PORT || 5000;
 
