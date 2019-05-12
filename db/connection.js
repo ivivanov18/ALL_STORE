@@ -10,7 +10,7 @@ module.exports = async () => {
         //useCreateIndex: true
       });
     } catch (err) {
-      console.log(err);
+      console.err(err);
     }
   }
 
