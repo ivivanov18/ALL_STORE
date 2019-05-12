@@ -10,6 +10,12 @@ class Cart {
     _totalPrice.set(this, totalPrice || 0);
   }
 
+  displayCart() {
+    console.log("items: ", _items.get(this));
+    console.log("totalQty: ", _totalQty.get(this));
+    console.log("totalPrice: ", _totalPrice.get(this));
+  }
+
   add(item, id) {
     const items = _items.get(this);
     let storedItem = items[id]; // 2 , price 4
