@@ -36,6 +36,13 @@ class Cart {
     _items.set(this, items);
   }
 
+  toObjectMapping() {
+    return {
+      items: _items.get(this),
+      totalQty: _totalQty.get(this),
+      totalPrice: _totalPrice.get(this)
+    };
+  }
   generateArray() {
     const arr = [];
     const items = _items.get(this);
