@@ -7,9 +7,12 @@ const jwt = require("jsonwebtoken");
 const { secret } = require("../config");
 const User = require("../models/User");
 
-// @route GET /users
-// @desc Test route
-// @access Public
+/**
+ * @description route to register
+ * @route POST /users
+ * @access public
+ * @returns {string} token - to be user for other protected routes
+ */
 router.post(
   "/",
   [
