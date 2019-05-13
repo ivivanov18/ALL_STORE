@@ -1,6 +1,10 @@
 const jwt = require("jsonwebtoken");
 const { secret } = require("../config");
 
+/**
+ * Middleware that adds the user in the req after checking the token set in the
+ * header
+ */
 module.exports = (req, res, next) => {
   // get the token from header
   const token = req.header("x-auth-token");
