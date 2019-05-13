@@ -16,14 +16,14 @@ const ITEMS = (() => {
     const _id = new ObjectId();
     const item = `${CATEGORIES[randomProduct]} ${_id}`;
     const price = Math.floor(Math.random() * (1000 - 100) + 100) / 100;
-    const quantity = 10; //initialQuantity
+    const qty = 10; //initialQuantity
     const category = CATEGORIES[randomProduct];
 
     const itemToPush = {
       _id,
       item,
       price,
-      quantity,
+      qty,
       category
     };
 

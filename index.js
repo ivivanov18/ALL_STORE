@@ -1,10 +1,13 @@
 const express = require("express");
 const session = require("express-session");
 
-// Models
-const User = require("./models/User");
+const ITEMS = require("./seed/generate_products");
+
+const seedProductsDB = require("./seed/products_seed");
+seedProductsDB();
 
 const app = express();
+
 app.use(
   session({
     resave: false,
