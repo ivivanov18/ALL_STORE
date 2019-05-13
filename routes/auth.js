@@ -8,9 +8,13 @@ const auth = require("../middleware/auth");
 const User = require("../models/User");
 const { secret } = require("../config");
 
-// @route GET /auth
-// @desc Test route
-// @access Public
+/**
+ * @description route to get the user information from the token (token has _id)
+ * @route POST /auth
+ * @access public
+ * @returns {string} token - to be user for other protected routes
+ *
+ */
 router.get("/", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id, ["password"]); //req.user set by middleware
@@ -21,6 +25,12 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
+/**
+ * @description route to login
+ * @route POST /auth
+ * @access public
+ * @returns {string} token - to be user for other protected routes
+ */
 router.post(
   "/",
   [
