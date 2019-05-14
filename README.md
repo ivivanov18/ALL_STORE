@@ -2,7 +2,14 @@
 
 ## PROJECT
 
-Express.js backend for a online shop.
+Express.js backend for a online shop. The user can:
+
+- register
+- login
+- browse all available products and by category
+- add items to carts
+- get the cart
+- make payments (charges)
 
 ## TECHNICAL DESCRIPTION
 
@@ -30,8 +37,10 @@ The application uses:
 - Cart
 - User
 - Product
+- Order
 
 ## TODO
 
-- Add Stripe
+- Add protected routes for add-to-cart, get-cart and charge endpoints
 - Refactor code to eliminate node.js "deprecated" error
+- Refactor code to eliminate
